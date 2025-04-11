@@ -68,6 +68,7 @@ public enum FontTokens {
             }
         }
     }
+    
 }
 
 // MARK: - Typography Constants
@@ -106,6 +107,7 @@ extension View {
     public func dsListSpacing() -> some View {
         self.modifier(DSListSpacingModifier())
     }
+    
 }
 
 /// Modifier that applies design system font with proper spacing
@@ -122,12 +124,10 @@ private struct DSFontModifier: ViewModifier {
     
     private func lineSpacingForFont(_ font: Font) -> CGFloat {
         switch font {
-        case FontTokens.Label.m:
-            return 6 // 22px - 16px
+        case FontTokens.Label.m, FontTokens.Body.m:
+            return 6
         case FontTokens.Label.s:
-            return 3 // 17px - 14px
-        case FontTokens.Body.m:
-            return 6 // 22px - 16px
+            return 3
         default:
             return 0
         }
@@ -137,9 +137,9 @@ private struct DSFontModifier: ViewModifier {
     private func kerningForFont(_ font: Font) -> CGFloat {
         switch font {
         case FontTokens.Label.m, FontTokens.Label.s:
-            return 0.16 // Letter spacing for labels
+            return 0.16
         case FontTokens.Body.m:
-            return 0.01 // Letter spacing for body text
+            return 0.01
         default:
             return 0
         }

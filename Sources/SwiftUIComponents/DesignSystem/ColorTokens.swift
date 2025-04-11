@@ -65,6 +65,7 @@ public enum ColorTokens {
 // MARK: - Color Extension
 
 extension Color {
+    
     /// Initialize a color with a hex string
     /// - Parameter hex: The hex string (e.g. "#FF0000")
     init(hex: String) {
@@ -91,4 +92,5 @@ extension Color {
             opacity: Double(a) / 255
         )
     }
+    
 }
